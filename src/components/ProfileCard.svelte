@@ -11,13 +11,17 @@
         <img src="{ avatar }" alt="Avatar" />
     </div>
     <h1>
-        { name }<small class="text-muted">#{ discriminator }</small>
+        { name }
+        {#if discriminator !== null}
+            <small class="text-muted">#{ discriminator }</small>
+        {/if}
     </h1>
 </div>
 
 <style>
     h1 {
         font-size: 2rem;
+        text-align: center;
     }
 
     .user-profile {

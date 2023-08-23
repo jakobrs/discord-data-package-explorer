@@ -31,10 +31,6 @@
                     '--toastProgressBackground': '#2F855A'
                 }
             });
-
-            timeout = setTimeout(() => {
-                showModal('<div style="text-align: center">Like what you see?<br><a href="https://androz2091.fr/discord" target="_blank">Support us by saying hello and sharing your stats in our Discord server!<a></div>');
-            }, 10000);
         } else navigate('/');
     });
 
@@ -55,7 +51,7 @@
                 <Card name="profile">
                     <ProfileCard
                         name="{ $data.user.username }"
-                        discriminator="{ $data.user.discriminator.toString().padStart(4, '0') }"
+                        discriminator="{ $data.user.discriminator == 0 ? null : $data.user.discriminator.toString().padStart(4, '0') }"
                         avatar="{ generateAvatarURL($data.user.avatar_hash, $data.user.id, $data.user.discriminator) }"
                     />
                 </Card>
@@ -169,7 +165,7 @@
                                 position={i}
                                 avatarURL={generateAvatarURL(channel.userData.avatar, channel.userData.id, channel.userData.discriminator)}
                                 name={channel.userData.username}
-                                discriminator={channel.userData.discriminator}
+                                discriminator={channel.userData.discriminator == 0 ? null : channel.userData.discriminator.toString().padStart(4, '0')}
                                 count={channel.messageCount.toLocaleString('en-US')}
                             />
                         {/each}
