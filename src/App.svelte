@@ -19,6 +19,7 @@
 	    duration: 10000
 	};
 
+	/*
 	onMount(() => {
 	    const
             paramDiswhoJwt = new URLSearchParams(window.location.search).get('diswhoJwt'),
@@ -35,6 +36,7 @@
             window.location.replace(`https://diswho.androz2091.fr?returnUrl=${window.location.href}`);
         }
     });
+	*/
 </script>
 
 <svelte:head>
